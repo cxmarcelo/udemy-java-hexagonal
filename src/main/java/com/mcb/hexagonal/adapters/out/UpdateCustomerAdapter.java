@@ -8,7 +8,7 @@ import com.mcb.hexagonal.adapters.out.repository.mapper.CustomerEntityMapper;
 import com.mcb.hexagonal.application.core.domain.Customer;
 import com.mcb.hexagonal.application.ports.out.UpdateCustomerOutputPort;
 
-@Component
+@Component("updateCustomerAdapter")
 public class UpdateCustomerAdapter implements UpdateCustomerOutputPort {
 
 	@Autowired

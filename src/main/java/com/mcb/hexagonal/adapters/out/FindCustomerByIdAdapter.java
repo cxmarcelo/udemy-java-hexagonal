@@ -10,7 +10,7 @@ import com.mcb.hexagonal.adapters.out.repository.mapper.CustomerEntityMapper;
 import com.mcb.hexagonal.application.core.domain.Customer;
 import com.mcb.hexagonal.application.ports.out.FindCustomerByIdOutputPort;
 
-@Component
+@Component("findCustomerByIdAdapter")
 public class FindCustomerByIdAdapter implements FindCustomerByIdOutputPort {
 
 	@Autowired

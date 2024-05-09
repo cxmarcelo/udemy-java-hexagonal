@@ -1,20 +1,26 @@
 package com.mcb.hexagonal.adapters.in.controller.mapper;
 
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
+import org.springframework.beans.BeanUtils;
+import org.springframework.stereotype.Component;
 
 import com.mcb.hexagonal.adapters.in.controller.request.CustomerRequest;
 import com.mcb.hexagonal.adapters.in.controller.response.CustomerResponse;
 import com.mcb.hexagonal.application.core.domain.Customer;
 
-@Mapper(componentModel = "spring")
-public interface CustomerMapper {
+@Component
+public class CustomerMapper {
 	
-	@Mapping(target = "id", ignore = true)
-	@Mapping(target = "address", ignore = true)
-	@Mapping(target = "isValidCpf", ignore = true)
-	Customer toCustomer(CustomerRequest customerRequest);
+	public Customer toCustomer(CustomerRequest customerRequest) {
+    	Customer customer = new Customer();
+    	BeanUtils.copyProperties(customerRequest, customer);
+    	return customer;
+	}
 
-	CustomerResponse toCustomerResponse(Customer customer);
+	public CustomerResponse toCustomerResponse(Customer customer) {
+		CustomerResponse customerResponse = new CustomerResponse();
+    	BeanUtils.copyProperties(customer, customerResponse);
+    	return customerResponse;
+	}
+	
 	
 }

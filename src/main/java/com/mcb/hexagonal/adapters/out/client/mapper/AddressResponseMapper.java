@@ -1,13 +1,18 @@
 package com.mcb.hexagonal.adapters.out.client.mapper;
 
-import org.mapstruct.Mapper;
+import org.springframework.beans.BeanUtils;
+import org.springframework.stereotype.Component;
 
 import com.mcb.hexagonal.adapters.out.client.response.AddressResponse;
 import com.mcb.hexagonal.application.core.domain.Address;
 
-@Mapper(componentModel = "spring")
-public interface AddressResponseMapper {
-	
-	Address toAddress(AddressResponse addressResponse);
+@Component
+public class AddressResponseMapper {
+
+	public Address toAddress(AddressResponse addressResponse) {
+		Address address = new Address();
+		BeanUtils.copyProperties(addressResponse, address);
+		return address;
+	}
 
 }

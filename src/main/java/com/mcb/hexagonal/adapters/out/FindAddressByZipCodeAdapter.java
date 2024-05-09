@@ -8,7 +8,7 @@ import com.mcb.hexagonal.adapters.out.client.mapper.AddressResponseMapper;
 import com.mcb.hexagonal.application.core.domain.Address;
 import com.mcb.hexagonal.application.ports.out.FindAddresByZipCodeOutputPort;
 
-@Component
+@Component("findAddressByZipCodeAdapter")
 public class FindAddressByZipCodeAdapter implements FindAddresByZipCodeOutputPort {
 
 	@Autowired

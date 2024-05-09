@@ -12,7 +12,7 @@ import com.mcb.hexagonal.adapters.out.client.response.AddressResponse;
 		)
 public interface FindAddresByZipCodeClient {
 
-	@GetMapping("/{zipCoe}")
+	@GetMapping("/{zipCode}")
 	AddressResponse find(@PathVariable("zipCode") String zipCode);
 
 }
